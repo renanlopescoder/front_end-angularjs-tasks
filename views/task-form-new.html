@@ -1,15 +1,45 @@
-<link rel="stylesheet" href="../css/bootstrap.css">
-<meta charset="utf-8">
-<div class="container">
-  <form action="">
-    <fieldset>
-      <legend>Informações do usuário</legend>
-      <div class="form-group">
-        <label for="nome">Description</label>
-        <input id="nome" class="form-control" type="text" name="nome">
+<fieldset data-ng-controller="TaskController">
+  <legend>Task and User Information</legend>
+  <div class="row">
+    <div class="form-group">
+      <div class="col-md-2">
+        <input data-ng-model="tasks.userName"
+          class="form-control" type="text" name="name" placeholder="User Name">
       </div>
-    </fieldset>
-    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-thumbs-up"></span>
-      Confirmar</button>
-  </form>
-</div>
+      <div class="col-md-2">
+        <input data-ng-model="tasks.userLastName"
+          class="form-control" type="text" name="lastName" placeholder="User Last Name">
+      </div>
+      <div class="col-md-2">
+        <input data-ng-model="search"
+          class="form-control" type="text" name="search" autocomplete="off" placeholder="Search">
+      </div>
+    </div>
+      <div class="row">
+        <div class="col-md-3">
+          <p>UserName: </td><td>{{tasks.userFullNameFunc() | uppercase}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-10">
+          <table class="table table-hover table-bordered">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class="text-md-center">
+              <tr ng-repeat="task in tasks.task | filter:search">
+                <td>{{task.id}}</td>
+                <td>{{task.description}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  </div>
+</fieldset>
+  <!-- <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-thumbs-up"></span>
+    Confirmar
+  </button> -->

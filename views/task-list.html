@@ -1,5 +1,4 @@
 <div class="row" data-ng-controller="TaskController">
-  <div class="col-md-offset-2 col-md-10 info-color-dar">
     <h1>Personal Tasks Manager</h1>
     <div class="md-form">
       <input id="search" type="text" class="form-control" placeholder="Search Tasks" name="nome"
@@ -13,11 +12,10 @@
         </tr>
       </thead>
       <tbody class="text-md-center">
-        <tr ng-repeat="task in tasks | filter:search">
+        <tr ng-repeat="task in tasks.task | filter:search">
           <td>{{task.id}}</td>
           <td>{{task.description}}</td>
         </tr>
       </tbody>
     </table>
-  </div>
 </div>

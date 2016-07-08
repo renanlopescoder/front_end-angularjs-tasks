@@ -23,7 +23,7 @@
                     Menu
                   </a>
                 <form class="form-inline">
-                    <input class="form-control" type="text" placeholder="Name" data-ng-model="name">
+                    <input class="form-control" type="text" placeholder="Name Menu" data-ng-model="name">
                 </form>
             </div>
         </div>
@@ -36,12 +36,12 @@
                     {{name}}
                 </a>
             </li>
-            <li ng-class="{active: activetab == '/'}"><a href="#/home">Home</a></li>
+            <li ng-class="{active: activetab == '/'}"><a href="#/">Home</a></li>
             <li>
-                <a href="#/">Tasks Progress</a>
+                <a href="#/new">New Task</a>
             </li>
             <li>
-                <a href="">Tasks Complete</a>
+                <a href="/">Tasks List</a>
             </li>
             <li>
                 <a href="#">About</a>
@@ -55,7 +55,7 @@
     </header>
     <div id="page-content-wrapper">
       <div class="container-fluid">
-        <div class="view-animate-container">
+        <div class="col-md-offset-2 col-md-10">
            <div ng-view class="view-animate"></div>
          </div>
       </div>
