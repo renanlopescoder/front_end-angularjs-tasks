@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="taskApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="author" content="renanslopes8_daniellfeijo">
+    <title>Tasks App</title>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css"> -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/mdb.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#collapseEx2">
+            <i class="fa fa-bars"></i>
+        </button>
+        <div class="container-fluid">
+            <div class="collapse navbar-toggleable-xs" id="collapseEx2">
+                  <a href="#menu-toggle" id="menu-toggle" class="btn btn-success-outline waves-effect">
+                    Menu
+                  </a>
+                <form class="form-inline">
+                    <input class="form-control" type="text" placeholder="Name" data-ng-model="name">
+                </form>
+            </div>
+        </div>
+      </nav>
+      <div id="wrapper">
+        <div id="sidebar-wrapper">
+          <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="#">
+                    {{name}}
+                </a>
+            </li>
+            <li ng-class="{active: activetab == '/'}"><a href="#/home">Home</a></li>
+            <li>
+                <a href="#/">Tasks Progress</a>
+            </li>
+            <li>
+                <a href="">Tasks Complete</a>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div id="page-content-wrapper">
+      <div class="container-fluid">
+        <div class="view-animate-container">
+           <div ng-view class="view-animate"></div>
+         </div>
+      </div>
+    </div>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/tether.js"></script>
+    <script src="../js/angular.min.js" charset="utf-8"></script>
+    <script src="../js/angular-route.min.js" charset="utf-8"></script>
+    <script src="../js/main.js" charset="utf-8"></script>
+    <script src="../js/controllers/tasks-controller.js" charset="utf-8"></script>
+    <script>
+      $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+      });
+    </script>
+  </body>
+</html>
