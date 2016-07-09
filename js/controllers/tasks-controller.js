@@ -27,12 +27,15 @@
 
       $scope.addTask = function(){
         $scope.tasks.push({
-          id : $scope.newTask.id,
+          id : Number($scope.tasks.length+1),
           description : $scope.newTask.description
         });
       };
       $scope.updateTask = function(task){
         $scope.tasks[Number(task.id)-1] = {id :  Number(task.id), description: $scope.updateTask.description};
+      };
+      $scope.clearTask = function(task){
+        $scope.tasks[Number(task.id)-1] = {id :  Number(task.id), description: ''};
       };
   });
 
