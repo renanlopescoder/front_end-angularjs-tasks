@@ -1,26 +1,36 @@
+/* global taskApp */
 
-taskApp.controller('TaskController', function($scope){
-  $scope.tasks = {
-    userName : 'Renan',
-    userLastName : 'Lopes',
+  taskApp.factory('TaskFactory', function(){
+      var tasks = [
+          {id : '1',description : 'Single Page App with AngularJS'},
+          {id : '2',description : 'Learn more'},
+          {id : '3',description : 'Just one more task here'}
+      ];
 
-    task :
-      [{
-        id : '1',
-        description : 'Sistem with AngularJS'
-      },
-      {
-        id : '2',
-        description : 'Learn more'
-      },
-      {
-        id : '3',
-        description : 'Just for test search'
-      }],
-      userFullNameFunc : function tasksObject(){
-        var userObject;
-        userObject = $scope.tasks;
-        return userObject.userName + " " + userObject.userLastName;
+      var factory = {};
+
+      factory.getTasks = function(){
+        return tasks;
+      };
+      
+      return factory;
+  });
+
+  taskApp.controller('TaskController', function($scope, TaskFactory){
+      $scope.tasks = [];
+
+      init();
+
+      function init(){
+        $scope.tasks = TaskFactory.getTasks();
       }
-    };
-});
+
+      $scope.addTask = function(){
+        $scope.tasks.push({
+          id : $scope.newTask.id,
+          description : $scope.newTask.description
+        });
+      };
+  });
+
+
