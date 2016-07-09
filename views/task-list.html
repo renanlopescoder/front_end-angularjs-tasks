@@ -12,7 +12,7 @@
         </tr>
       </thead>
       <tbody class="text-md-center">
-        <tr ng-repeat="task in tasks | filter:search">
+        <tr data-ng-repeat="task in tasks | filter:search">
           <td>{{task.id}}</td>
           <td>{{task.description}}</td>
         </tr>

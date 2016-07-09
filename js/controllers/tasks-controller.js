@@ -31,6 +31,9 @@
           description : $scope.newTask.description
         });
       };
+      $scope.updateTask = function(task){
+        $scope.tasks[Number(task.id)-1] = {id :  Number(task.id), description: $scope.updateTask.description};
+      };
   });
 
 

@@ -5,9 +5,12 @@ taskApp.config(['$routeProvider','$locationProvider',
   $routeProvider.when('/', {
       templateUrl : 'task-list.html',
       controller : 'TaskController'
-   }).when('/new', {
+   }).when('/dashboard', {
+       templateUrl : 'dashboard.html',
+       controller : 'TaskController'
+    }).when('/remove/:removeId', {
        templateUrl : 'task-form-new.html',
        controller : 'TaskController'
-    })
+       })
    .otherwise ({ redirectTo: '/' });
 }]);

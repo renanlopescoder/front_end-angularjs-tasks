@@ -1,0 +1,60 @@
+<fieldset data-ng-controller="TaskController">
+  <div class="row">
+    <div class="md-form">
+        <label for="search">Search</label>
+        <input id="search" data-ng-model="search"
+          class="form-control" type="text" name="search" autocomplete="off">
+    </div>
+  </div>
+  <h2>Task</h2>
+  <p>Add Task</p>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="md-form">
+        <label for="taskId">ID</label>
+        <input id="taskId" type="text" class="form-control" name="id" data-ng-model="newTask.id">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="md-form">
+        <label for="taskDescription">Description</label>
+        <input id="taskDescription" type="text" class="form-control"
+          name="description" data-ng-model="newTask.description">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" data-ng-click="addTask()">
+      Add Task
+    </button>
+  </div>
+  <br>
+  <p>Update Task</p>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="md-form">
+        <label for="taskDescriptionUpdate">Update Description</label>
+        <input id="taskDescriptionUpdate" type="text" class="form-control"
+          name="descriptionUpdate" data-ng-model="updateTask.description">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10">
+      <table class="table table-hover table-bordered">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Description</th>
+            <th>Update</th>
+          </tr>
+        </thead>
+        <tbody class="text-md-center">
+          <tr ng-repeat="task in tasks | filter:search | orderBy:task.id">
+            <td>{{task.id}}</td>
+            <td>{{task.description}}</td>
+            <td><button data-ng-click="updateTask(task)" class="btn btn-primary">Update</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</fieldset>
