@@ -1,6 +1,7 @@
 var taskApp = angular.module('taskApp',['ngRoute']);
 
-taskApp.config(function($routeProvider){
+taskApp.config(['$routeProvider','$locationProvider',
+  function($routeProvider, $locationProvider) {
   $routeProvider.when('/', {
       templateUrl : 'task-list.html',
       controller : 'TaskController'
@@ -9,4 +10,4 @@ taskApp.config(function($routeProvider){
        controller : 'TaskController'
     })
    .otherwise ({ redirectTo: '/' });
-});
+}]);
