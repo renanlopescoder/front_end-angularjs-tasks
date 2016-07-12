@@ -1,0 +1,34 @@
+<div data-ng-controller="TaskController">
+  <h2>Task Details</h2>
+  <br>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="md-form">
+          <label for="taskDescriptionUpdate">Update Description</label>
+          <input id="taskDescriptionUpdate" type="text" class="form-control"
+            name="descriptionUpdate" data-ng-model="updateTask.description">
+          <a href="#/details/{{task.id}}" class="btn btn-info-outline waves-effect btn-rounded">Update</a>
+        </div>
+      </div>
+    </div>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-hover table-bordered">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody class="text-md-center">
+          <tr>
+            <td>{{task.id}}</td>
+            <td>{{task.description}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <button data-ng-click="clearTask(task)" class="btn btn-info-outline waves-effect btn-rounded">Clear</button>
+    </div>
+  </div>
+  <button data-ng-click="updateTask(task)" class="btn btn-info-outline waves-effect btn-rounded">Update</button>
+</div>

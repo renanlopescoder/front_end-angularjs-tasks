@@ -1,53 +1,51 @@
 <fieldset data-ng-controller="TaskController">
-  <div class="row">
-    <div class="md-form">
-        <label for="search">Search</label>
-        <input id="search" data-ng-model="search"
-          class="form-control" type="text" name="search" autocomplete="off">
-    </div>
-  </div>
-  <h2>Task</h2>
-  <p>Add Task</p>
-  <div class="row">
-    <div class="col-md-4">
-      <div class="md-form">
-        <label for="taskDescription">Description</label>
-        <input id="taskDescription" type="text" class="form-control"
-          name="description" data-ng-model="newTask.description">
-      </div>
-    </div>
-    <button type="submit" class="btn btn-primary" data-ng-click="addTask()">
-      Add Task
-    </button>
-  </div>
+  <h2>Dashboard</h2>
   <br>
-  <p>Update Task</p>
-  <div class="row">
-    <div class="col-md-4">
-      <div class="md-form">
-        <label for="taskDescriptionUpdate">Update Description</label>
-        <input id="taskDescriptionUpdate" type="text" class="form-control"
-          name="descriptionUpdate" data-ng-model="updateTask.description">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="md-form">
+          <label for="taskDescription">New Task Description</label>
+          <input id="taskDescription" type="text" class="form-control"
+            name="description" data-ng-model="newTask.description">
+        </div>
       </div>
     </div>
-  </div>
+      <button type="submit" class="btn btn-info-outline waves-effect btn-rounded" data-ng-click="addTask()">
+        Add Task
+      </button>
+    <div class="row padding-top">
+      <div class="col-md-6">
+        <div class="md-form">
+          <label for="taskDescriptionUpdate">Update Description</label>
+          <input id="taskDescriptionUpdate" type="text" class="form-control"
+          name="descriptionUpdate" data-ng-model="updateTask.description">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="md-form">
+          <label for="search">Search Task</label>
+          <input id="search" data-ng-model="search"
+            class="form-control" type="text" name="search" autocomplete="off">
+        </div>
+      </div>
+    </div>
   <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-12">
       <table class="table table-hover table-bordered">
         <thead>
           <tr>
             <th>ID</th>
             <th>Description</th>
-            <th>Update Description</th>
-            <th>Clear Description</th>
+            <th class="text-md-center text-xs-center">Tools</th>
           </tr>
         </thead>
         <tbody class="text-md-center">
           <tr ng-repeat="task in tasks | filter:search | orderBy:task.id">
             <td>{{task.id}}</td>
             <td>{{task.description}}</td>
-            <td><button data-ng-click="updateTask(task)" class="btn btn-primary">Update</button></td>
-            <td><button data-ng-click="clearTask(task)" class="btn btn-primary">Clear</button></td>
+            <td>
+              <button data-ng-click="updateTask(task)" class="btn btn-info-outline waves-effect btn-rounded">Update</button>
+              <button data-ng-click="clearTask(task)" class="btn btn-info-outline waves-effect btn-rounded">Clear</button></td>
           </tr>
         </tbody>
       </table>
