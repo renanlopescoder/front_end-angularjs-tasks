@@ -2,7 +2,7 @@
   <h2>Dashboard</h2>
   <br>
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12 col-xs-12">
         <div class="md-form">
           <label for="taskDescription">New Task Description</label>
           <input id="taskDescription" type="text" class="form-control"
@@ -14,14 +14,14 @@
         Add Task
       </button>
     <div class="row padding-top">
-      <div class="col-md-6">
+      <div class="col-md-6 col-xs-12">
         <div class="md-form">
           <label for="taskDescriptionUpdate">Update Description</label>
           <input id="taskDescriptionUpdate" type="text" class="form-control"
           name="descriptionUpdate" data-ng-model="updateTask.description">
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 col-xs-12">
         <div class="md-form">
           <label for="search">Search Task</label>
           <input id="search" data-ng-model="search"
@@ -30,7 +30,7 @@
       </div>
     </div>
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 col-xs-12">
       <table class="table table-hover table-bordered">
         <thead>
           <tr>
@@ -39,7 +39,7 @@
             <th class="text-md-center text-xs-center">Tools</th>
           </tr>
         </thead>
-        <tbody class="text-md-center">
+        <tbody class="text-md-center text-xs-center">
           <tr ng-repeat="task in tasks | filter:search | orderBy:task.id">
             <td>{{task.id}}</td>
             <td>{{task.description}}</td>
