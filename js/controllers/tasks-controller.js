@@ -1,10 +1,11 @@
 /* global taskApp */
 
   taskApp.factory('TaskFactory', function(){
+    
     var tasks = [
-        {id : '1',description : 'Single Page App with AngularJS'},
-        {id : '2',description : 'Learn more'},
-        {id : '3',description : 'Just one more task here'}
+        {id : '1',description : 'Single Page App with AngularJS',active:'false'},
+        {id : '2',description : 'Learn more',active:'false'},
+        {id : '3',description : 'Just one more task here',active:'false'}
     ];
 
     var factory = {};
@@ -31,11 +32,20 @@
         description : $scope.newTask.description
       });
     };
-    $scope.updateTask = function(task){
-      $scope.tasks[Number(task.id)-1] = {id :  Number(task.id), description: $scope.updateTask.description};
+    $scope.taskActive = function(task,active){
+      $scope.tasks[$scope.tasks.indexOf(task)].active = active;
+    };
+    $scope.saveTask = function(task){
+      $scope.tasks[$scope.tasks.indexOf(task)] = {id :  Number(task.id), description: $scope.saveTask.description};
+      $scope.saveTask.description = "";
+      $scope.active = 'false';
     };
     $scope.clearTask = function(task){
-      $scope.tasks[Number(task.id)-1] = {id :  Number(task.id), description: ''};
+      $scope.tasks[$scope.tasks.indexOf(task)] = {id :  Number(task.id), description: ''};
+    };
+    $scope.removeTask = function(task) { 
+      var index = $scope.tasks.indexOf(task);
+      $scope.tasks.splice(index, 1);     
     };
   });
 
