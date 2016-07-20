@@ -1,7 +1,6 @@
 /* global taskApp */
 
   taskApp.factory('TaskFactory', function(){
-    
     var tasks = [
         {id : '1',description : 'Single Page App with AngularJS',active:'false'},
         {id : '2',description : 'Learn more',active:'false'},
@@ -19,7 +18,7 @@
 
   taskApp.controller('TaskController', function($scope, TaskFactory,$routeParams){
     $scope.tasks = [];
-
+    $scope.id = 4;
     init();
 
     function init(){
@@ -28,9 +27,10 @@
 
     $scope.addTask = function(){
       $scope.tasks.push({
-        id : Number($scope.tasks.length+1),
+        id : $scope.id,
         description : $scope.newTask.description
       });
+      $scope.id++;
     };
     $scope.taskActive = function(task,active){
       $scope.tasks[$scope.tasks.indexOf(task)].active = active;
