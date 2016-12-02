@@ -1,79 +1,93 @@
 <!DOCTYPE html>
 <html lang="en" data-ng-app="taskApp">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
-    <meta name="author" content="renanslopes8_daniellfeijo">
-    <title>Tasks App</title>
-    <link href="css/assets/bootstrap.css" rel="stylesheet">
-    <link href="css/assets/mdb.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-  </head>
-  <body>
-      <nav class="navbar">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapseEx2">
-            <i class="fa fa-bars"></i>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+  <meta name="author" content="Renan Lopes">
+  <title>Tasks App</title>
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/mdb.css" rel="stylesheet">
+  <link href="assets/css/material-kit.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar navbar-primary" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
         </button>
-        <div class="container-fluid">
-            <div id="collapseEx2">
-                  <a href="#menu-toggle" id="menu-toggle" class="btn btn-info-outline waves-effect btn-rounded">
-                    Menu
-                  </a>
-                <form class="form-inline">
-                    <input class="form-control" type="text" placeholder="Name Menu" data-ng-model="name">
-                </form>
-            </div>
-        </div>
-      </nav>
-      <div id="wrapper">
-        <div id="sidebar-wrapper">
-          <ul class="sidebar-nav">
-            <li class="sidebar-brand">
-                <a href="#/">
-                    <img class="img-reponsive" src="img/logo.png">
-                </a>
-            </li>
-            <li><a href="#/">{{name}}</a></li>
-            <li><a href="#/">Home</a></li>
-            <li>
-                <a href="#/dashboard">Dashboard</a>
-            </li>
-            <li>
-                <a href="#/">Tasks List</a>
-            </li>
-            <li>
-                <a href="#">About</a>
-            </li>
-            <li>
-                <a href="#">Contact</a>
-            </li>
-          </ul>
-        </div>
-      <div id="page-content-wrapper">
-        <div class="container-fluid">
-          <div class="col-md-12">
-             <div ng-view class="view-animate"></div>
-           </div>
-        </div>
+        <a class="navbar-brand" href="#"><img class="img-responsive col-xs-4 col-lg-4" src="img/r-branco.png"> Task App</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="#tasks-list">Tasks Progress</a></li>
+          <li><a href="#tasks-done">Tasks Done</a></li>
+          <li><a href="#tasks-list" data-toggle="modal" data-target="#newTaskModal">New Task</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
       </div>
     </div>
-    <script src="js/assets/jquery.min.js"></script>
-    <script src="js/assets/bootstrap.js"></script>
-    <script src="js/assets/tether.js"></script>
-    <script src="js/assets/mdb.js"></script>
-    <script src="js/assets/angular.min.js" charset="utf-8"></script>
-    <script src="js/assets/angular-route.min.js" charset="utf-8"></script>
-    <script src="js/main.js" charset="utf-8"></script>
-    <script src="js/controllers/tasks-controller.js" charset="utf-8"></script>
-    <script>
-      $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-      });
-      $('#myModal').on('shown.bs.modal', function () {
-        $('#myInput').focus();
-      });
-    </script>
-  </body>
+  </nav>
+  <div class="container-fluid">
+    <ul class="nav nav-pills nav-pills-primary" role="tablist">
+      <li class="active">
+        <a href="#tasks-list" role="tab" data-toggle="tab">
+          <i class="material-icons">list</i>
+          Tasks
+        </a>
+      </li>
+      <li>
+        <a href="#tasks-done" role="tab" data-toggle="tab">
+          <i class="material-icons">done</i>
+          Completed
+        </a>
+      </li>
+      <li class="hidden-xs">
+        <a href="#tasks-list" data-toggle="modal" data-target="#newTaskModal">
+          <i class="material-icons">library_add</i>
+          New
+        </a>
+      </li>
+      <li>
+        <a href="#about" role="tab" data-toggle="tab">
+          <i class="material-icons">assignment</i>
+          About
+        </a>
+      </li>
+    </ul>
+  </div>
+  <section class="container-fluid">
+    <div id="page-content-wrapper">
+      <div ng-view class="view-animate"></div>
+    </div>
+  </section>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/tether.js"></script>
+  <script src="assets/js/mdb.js"></script>
+  <script src="assets/js/nouislider.min.js"></script>
+  <script src="assets/js/angular.min.js" charset="utf-8"></script>
+  <script src="assets/js/angular-route.min.js" charset="utf-8"></script>
+  <script src="assets/js/material.min.js"></script>
+  <script src="js/main.js" charset="utf-8"></script>
+  <script src="js/controllers/tasks-controller.js" charset="utf-8"></script>
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+    $('#newTaskModal').on('shown.bs.modal', function () {
+      $('#taskTitle').focus();
+    });
+  </script>
+</body>
 </html>
