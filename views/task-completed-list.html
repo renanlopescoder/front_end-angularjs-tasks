@@ -36,15 +36,15 @@
               </div>
 
           <br>
-          <button class="btn btn-danger btn-fab btn-fab-mini btn-round" ng-click="removeTask(task)">
+          <button class="btn btn-danger btn-just-icon" ng-click="removeTask(task)">
             <i class="material-icons">delete</i>
           </button>
 
-          <button ng-show="task.active == 'true'"  ng-click="taskActive(task,'false')" class="btn btn-warning btn-fab btn-fab-mini btn-round"><i class="material-icons">not_interested</i></button>
+          <button ng-show="task.active == 'true'"  ng-click="taskActive(task,'false')" class="btn btn-warning btn-just-icon"><i class="material-icons">not_interested</i></button>
 
-          <button ng-show="task.active == 'true'" ng-click="saveTask(task)" class="btn btn-primary btn-fab btn-fab-mini btn-round"><i class="material-icons">save</i></button>
+          <button ng-show="task.active == 'true'" ng-click="saveTask(task)" class="btn btn-primary btn-just-icon"><i class="material-icons">save</i></button>
 
-          <button ng-click="taskProgress(task,'pending')" class="btn btn-warning btn-fab btn-fab-mini btn-round">
+          <button ng-click="taskProgress(task,'pending')" class="btn btn-warning btn-just-icon">
             <i class="material-icons">settings_backup_restore</i>
           </button>
       </div>
