@@ -30,14 +30,6 @@
             <input id="taskDescription" type="text" class="form-control"
             name="description" ng-model="newTask.description" placeholder="Task Description">
           </div>   
-          <i class="material-icons">label</i>
-          <hr>
-          <div class="text-center">
-            <span class="label label-default">Home</span>
-            <span class="label label-primary">Work</span>
-            <span class="label label-info">Academic</span>
-            <span class="label label-danger">Priority</span>
-          </div>
           <hr>
           <div class="text-right">
             <button data-dismiss="modal" class="btn btn-warning btn-just-icon"><i class="material-icons">not_interested</i></button>
@@ -61,6 +53,9 @@
   </div>
   <div class="row">
     <div ng-repeat="task in tasks |  filter:search | orderBy:task.id" ng-if="task.progress == 'pending'">
+      <div class="row hidden-sm hidden-md hidden-lg">
+        <br>
+      </div>
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <!--Card-->
         <div class="card container-fluid">
@@ -103,6 +98,9 @@
           </div>
           <br>
 
+        </div>
+        <div class="row hidden-sm hidden-md hidden-lg">
+          <br>
         </div>
       </div>
     </div>
